@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './App.css'
+import Input from "./components/Input";
+import CardList from "./components/CardList";
+import {useCitiesList} from './components/hooks/useCitiesList'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+
+const [citiesList,dispatch]=useCitiesList()
+    return (
+        <div className='Main'>
+            <Input dispatch={dispatch}/>
+            <CardList citiesList={citiesList} dispatch={dispatch}/>
+        </div>
+    );
+};
 
 export default App;
