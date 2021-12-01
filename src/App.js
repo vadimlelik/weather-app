@@ -6,16 +6,23 @@ import { useCitiesList } from './components/hooks/useCitiesList'
 
 const App = () => {
   const [state, dispatch] = useCitiesList()
-  const { inputValue, citiesList, editingCity } = state
+  const { inputValue, citiesList, editingCity } =
+    state /*Деструктуризация state*/
+  export const globalContext = React.createContext(
+    state,
+    dispatch
+  ) /* создание Context */
   return (
-    <div className='Main'>
-      <Input
-        dispatch={dispatch}
-        inputValue={inputValue}
-        editingCity={editingCity}
-      />
-      <CardList citiesList={citiesList} dispatch={dispatch} />
-    </div>
+    <globalContext.Provider value={{ state, dispatch }}>
+      <div className='Main'>
+        <Input
+          dispatch={dispatch}
+          inputValue={inputValue}
+          editingCity={editingCity}
+        />
+        <CardList citiesList={citiesList} dispatch={dispatch} />
+      </div>
+    </globalContext.Provider>
   )
 }
 
