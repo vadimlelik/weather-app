@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Card from '../Card'
 
-const CardList = ({ citiesList, dispatch }) => {
+import { globalContext } from '../../App'
+
+const CardList = () => {
+  const {
+    state: { citiesList }
+  } = useContext(globalContext)
   return (
     <div className='CardLIst'>
       {citiesList.map((cities) => {
-        return <Card key={cities} cities={cities} dispatch={dispatch} />
+        return <Card key={cities} cities={cities} />
       })}
     </div>
   )

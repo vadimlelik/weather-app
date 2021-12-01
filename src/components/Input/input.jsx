@@ -1,9 +1,14 @@
-import React, { useRef } from 'react'
+import React, { useRef, useContext } from 'react'
+import { globalContext } from '../../App'
 import '../../App.css'
 
-const Input = ({ dispatch, inputValue, editingCity }) => {
-  const inputRef = useRef(null)
+const Input = () => {
+  const {
+    dispatch,
+    state: { inputValue, editingCity }
+  } = useContext(globalContext)
 
+  const inputRef = useRef(null)
   const handleOnChange = (event) => {
     dispatch({
       type: 'CHANGE_INPUT_VALUE',
