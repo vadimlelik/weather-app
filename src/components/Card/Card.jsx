@@ -5,7 +5,7 @@ import { globalContext } from '../../App'
 
 const Card = memo(({ cities }) => {
   const data = useWeather(cities)
-  const { state, dispatch } = useContext(globalContext)
+  const { dispatch } = useContext(globalContext)
 
   if (!data) return null
   const { name, weather, main } = data
