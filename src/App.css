@@ -28,6 +28,12 @@
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
 }
+.Select {
+  padding: 4px 8px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
 .CardLIst {
   display: flex;
   justify-content: space-around;
